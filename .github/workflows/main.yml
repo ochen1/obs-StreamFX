@@ -172,7 +172,14 @@ jobs:
     - name: "Test"
       shell: bash
       run: |
-        ls -al build
+        tar -czvf build.tar.gz build/
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: windows
+        path: build.tar.gz
+        retention-days: 5
+
 
   macos:
     strategy:
@@ -314,7 +321,13 @@ jobs:
     - name: "Test"
       shell: bash
       run: |
-        ls -al build
+        tar -czvf build.tar.gz build/
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: macos
+        path: build.tar.gz
+        retention-days: 5
 
   ubuntu:
     strategy:
@@ -482,4 +495,10 @@ jobs:
     - name: "Test"
       shell: bash
       run: |
-        ls -al build
+        tar -czvf build.tar.gz build/
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: ubuntu
+        path: build.tar.gz
+        retention-days: 5
