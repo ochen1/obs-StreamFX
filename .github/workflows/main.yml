@@ -169,6 +169,10 @@ jobs:
         CMAKE_BUILD_TYPE: "RelWithDebInfo"
       run: |
         cmake --build "build/ci" --config ${{ env.CMAKE_BUILD_TYPE }} --target StreamFX
+    - name: "Test"
+      shell: bash
+      run: |
+        ls -al
 
   macos:
     strategy:
@@ -307,6 +311,10 @@ jobs:
         CMAKE_BUILD_TYPE: "RelWithDebInfo"
       run: |
         cmake --build "build/ci" --config RelWithDebInfo --target StreamFX
+    - name: "Test"
+      shell: bash
+      run: |
+        ls -al
 
   ubuntu:
     strategy:
@@ -471,3 +479,7 @@ jobs:
       shell: bash
       run: |
         cmake --build "build/ci" --config RelWithDebInfo --target StreamFX
+    - name: "Test"
+      shell: bash
+      run: |
+        ls -al
