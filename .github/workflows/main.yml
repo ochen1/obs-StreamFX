@@ -172,7 +172,7 @@ jobs:
     - name: "Test"
       shell: bash
       run: |
-        ls -al
+        ls -al build
 
   macos:
     strategy:
@@ -314,7 +314,7 @@ jobs:
     - name: "Test"
       shell: bash
       run: |
-        ls -al
+        ls -al build
 
   ubuntu:
     strategy:
@@ -482,4 +482,4 @@ jobs:
     - name: "Test"
       shell: bash
       run: |
-        ls -al
+        ls -al build
