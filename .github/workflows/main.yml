@@ -156,19 +156,12 @@ jobs:
           -DQt${{ matrix.qt }}_DIR="${{ github.workspace }}/build/qt" \
           -DFFmpeg_DIR="${{ github.workspace }}/build/obsdeps" \
           -DCURL_DIR="${{ github.workspace }}/build/obsdeps"
-    - name: "Build: Debug"
-      continue-on-error: true
-      shell: bash
-      env:
-        CMAKE_BUILD_TYPE: "Debug"
-      run: |
-        cmake --build "build/ci" --config ${{ env.CMAKE_BUILD_TYPE }} --target StreamFX
     - name: "Build: Release"
       shell: bash
       env:
         CMAKE_BUILD_TYPE: "RelWithDebInfo"
       run: |
-        cmake --build "build/ci" --config ${{ env.CMAKE_BUILD_TYPE }} --target StreamFX
+        cmake --build --preset windows-x64 --config RelWithDebInfo --parallel -- /consoleLoggerParameters:Summary  --target StreamFX
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
       with:
